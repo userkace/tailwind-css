@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Tailwind CSS</title>
+     <script src="https://cdn.tailwindcss.com"></script>
+     <style>
+          body {
+               font-family: Arial, sans-serif;
+          }
+     </style>
+     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+</head>
+
+<body class="bg-gray-100 min-h-screen p-6">
+     <h1 class="text-2xl font-bold text-gray-800 mb-4 text-center">Interactive Tailwind CSS</h1>
+
+
+     <nav class="pt-2 pb-8">
+          <div class="container mx-auto flex justify-center">
+               <ul class="flex items-center">
+                    <li class="mr-6">
+                         <a href="#basic-classes-tab" class="text-black hover:text-green-800 hover:underline"
+                              aria-current="page">Basic
+                              Classes</a>
+                    </li>
+                    <li class="mr-6">
+                         <a href="#image-classes-tab" class="text-black hover:text-green-800 hover:underline">Image
+                              Classes</a>
+                    </li>
+               </ul>
+          </div>
+     </nav>
+
+     <div class="tab-content mt-4">
+
+          <!-- Basic Classes -->
+          <!-- Basic Classes -->
+          <!-- Basic Classes -->
+
+          <div id="basic-classes-tab" class="tab-pane">
+               <div class="max-w-6xl mx-auto bg-white rounded-lg shadow p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                         <!-- Class Explorer -->
+                         <div>
+                              <h2 class="text-xl font-semibold text-gray-700 mb-2">Configure Styles</h2>
+                              <form id="classForm" class="space-y-4">
+                                   <!-- Background Color -->
+                                   <div>
+                                        <h3 class="text-lg font-medium text-gray-600">Background Color</h3>
+                                        <div class="grid grid-cols-1 md:grid-cols-6 gap-2">
+                                             <label class="flex items-center space-x-2">
+                                                  <input type="radio" name="bgColor" value="bg-red-500"
+                                                       class="form-radio">
+                                                  <span>Red</span>
+                                             </label>
+                                             <label class="flex items-center space-x-2">
+                                                  <input type="radio" name="bgColor" value="bg-green-500"
+                                                       class="form-radio">
+                                                  <span>Green</span>
+                                             </label>
+                                             <label class="flex items-center space-x-2">
+                                                  <input type="radio" name="bgColor" value="bg-blue-500"
+                                                       class="form-radio">
+                                                  <span>Blue</span>
+                                             </label>
+                                        </div>
+                                   </div>
+
+                                   <!-- Text Color -->
+                                   <div>
+                                        <h3 class="text-lg font-medium text-gray-600">Text Color</h3>
+                                        <div class="grid grid-cols-1 md:grid-cols-6 gap-2">
+                                             <label class="flex items-center space-x-2">
+                                                  <input type="radio" name="textColor" value="text-white"
+                                                       class="form-radio">
+                                                  <span>White</span>
+                                             </label>
+                                             <label class="flex items-center space-x-2">
+                                                  <input type="radio" name="textColor" value="text-black"
+                                                       class="form-radio">
+                                                  <span>Black</span>
+                                             </label>
+                                             <label class="flex items-center space-x-2">
+                                                  <input type="radio" name="textColor" value="text-gray-700"
+                                                       class="form-radio">
+                                                  <span>Gray</span>
+                                             </label>
+                                        </div>
+                                   </div>
+
+                                   <!-- Padding -->
+                                   <div>
+                                        <h3 class="text-lg font-medium text-gray-600">Padding</h3>
+
+                                        <!-- Padding Type Dropdown -->
+                                        <div>
+                                             <label for="paddingType"
+                                                  class="block text-md font-medium text-gray-400 mb-2">Choose
+                                                  Padding Type</label>
+                                             <select id="paddingType" name="paddingType" class="form-select block">
+                                                  <option value="whole">Whole Padding</option>
+                                                  <option value="individual">Individual Sides</option>
+                                             </select>
+                                        </div>
+
+                                        <!-- Whole Padding Option -->
+                                        <div id="wholePaddingOptions"
+                                             class="grid grid-cols-1 md:grid-cols-10 gap-0 mt-4">
+                                             <label class="flex items-center space-x-2">
+                                                  <input type="radio" name="padding" value="p-2" class="form-radio">
+                                                  <span>p-2</span>
+                                             </label>
+                                             <label class="flex items-center space-x-2">
+                                                  <input type="radio" name="padding" value="p-4" class="form-radio">
+                                                  <span>p-4</span>
+                                             </label>
+                                             <label class="flex items-center space-x-2">
+                                                  <input type="radio" name="padding" value="p-8" class="form-radio">
+                                                  <span>p-8</span>
+                                             </label>
+                                        </div>
+
+                                        <!-- Individual Padding Options (4-column grid) -->
+                                        <div id="individualPaddingOptions"
+                                             class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4 hidden">
+                                             <div>
+                                                  <h4 class="text-md font-medium text-gray-500">Top</h4>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="padding" value="pt-2"
+                                                            class="form-checkbox">
+                                                       <span>pt-2</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="padding" value="pt-4"
+                                                            class="form-checkbox">
+                                                       <span>pt-4</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="padding" value="pt-8"
+                                                            class="form-checkbox">
+                                                       <span>pt-8</span>
+                                                  </label>
+                                             </div>
+
+                                             <div>
+                                                  <h4 class="text-md font-medium text-gray-500">Bottom</h4>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="padding" value="pb-2"
+                                                            class="form-checkbox">
+                                                       <span>pb-2</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="padding" value="pb-4"
+                                                            class="form-checkbox">
+                                                       <span>pb-4</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="padding" value="pb-8"
+                                                            class="form-checkbox">
+                                                       <span>pb-8</span>
+                                                  </label>
+                                             </div>
+
+                                             <div>
+                                                  <h4 class="text-md font-medium text-gray-500">Left</h4>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="padding" value="pl-2"
+                                                            class="form-checkbox">
+                                                       <span>pl-2</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="padding" value="pl-4"
+                                                            class="form-checkbox">
+                                                       <span>pl-4</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="padding" value="pl-8"
+                                                            class="form-checkbox">
+                                                       <span>pl-8</span>
+                                                  </label>
+                                             </div>
+
+                                             <div>
+                                                  <h4 class="text-md font-medium text-gray-500">Right</h4>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="padding" value="pr-2"
+                                                            class="form-checkbox">
+                                                       <span>pr-2</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="padding" value="pr-4"
+                                                            class="form-checkbox">
+                                                       <span>pr-4</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="padding" value="pr-8"
+                                                            class="form-checkbox">
+                                                       <span>pr-8</span>
+                                                  </label>
+                                             </div>
+                                        </div>
+                                   </div>
+
+                                   <!-- Margin -->
+                                   <div>
+                                        <h3 class="text-lg font-medium text-gray-600">Margin</h3>
+
+                                        <!-- Margin Type Dropdown -->
+                                        <div>
+                                             <label for="marginType"
+                                                  class="block text-md font-medium text-gray-400 mb-2">Choose
+                                                  Margin Type</label>
+                                             <select id="marginType" name="marginType" class="form-select block">
+                                                  <option value="whole">Whole Margin</option>
+                                                  <option value="individual">Individual Sides</option>
+                                             </select>
+                                        </div>
+
+                                        <!-- Whole Margin Option -->
+                                        <div id="wholeMarginOptions"
+                                             class="grid grid-cols-1 md:grid-cols-10 gap-0 mt-4">
+                                             <label class="flex items-center space-x-2">
+                                                  <input type="radio" name="margin" value="m-2" class="form-radio">
+                                                  <span>m-2</span>
+                                             </label>
+                                             <label class="flex items-center space-x-2">
+                                                  <input type="radio" name="margin" value="m-4" class="form-radio">
+                                                  <span>m-4</span>
+                                             </label>
+                                             <label class="flex items-center space-x-2">
+                                                  <input type="radio" name="margin" value="m-8" class="form-radio">
+                                                  <span>m-8</span>
+                                             </label>
+                                        </div>
+
+                                        <!-- Individual Margin Options (4-column grid) -->
+                                        <div id="individualMarginOptions"
+                                             class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4 hidden">
+                                             <div>
+                                                  <h4 class="text-md font-medium text-gray-500">Top</h4>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="margin" value="mt-2"
+                                                            class="form-checkbox">
+                                                       <span>mt-2</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="margin" value="mt-4"
+                                                            class="form-checkbox">
+                                                       <span>mt-4</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="margin" value="mt-8"
+                                                            class="form-checkbox">
+                                                       <span>mt-8</span>
+                                                  </label>
+                                             </div>
+
+                                             <div>
+                                                  <h4 class="text-md font-medium text-gray-500">Bottom</h4>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="margin" value="mb-2"
+                                                            class="form-checkbox">
+                                                       <span>mb-2</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="margin" value="mb-4"
+                                                            class="form-checkbox">
+                                                       <span>mb-4</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="margin" value="mb-8"
+                                                            class="form-checkbox">
+                                                       <span>mb-8</span>
+                                                  </label>
+                                             </div>
+
+                                             <div>
+                                                  <h4 class="text-md font-medium text-gray-500">Left</h4>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="margin" value="ml-2"
+                                                            class="form-checkbox">
+                                                       <span>ml-2</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="margin" value="ml-4"
+                                                            class="form-checkbox">
+                                                       <span>ml-4</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="margin" value="ml-8"
+                                                            class="form-checkbox">
+                                                       <span>ml-8</span>
+                                                  </label>
+                                             </div>
+
+                                             <div>
+                                                  <h4 class="text-md font-medium text-gray-500">Right</h4>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="margin" value="mr-2"
+                                                            class="form-checkbox">
+                                                       <span>mr-2</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="margin" value="mr-4"
+                                                            class="form-checkbox">
+                                                       <span>mr-4</span>
+                                                  </label>
+                                                  <label class="flex items-center space-x-2">
+                                                       <input type="checkbox" name="margin" value="mr-8"
+                                                            class="form-checkbox">
+                                                       <span>mr-8</span>
+                                                  </label>
+                                             </div>
+                                        </div>
+                                   </div>
+
+
+                              </form>
+
+                              <div class="mt-4">
+                                   <button id="applyClasses"
+                                        class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Apply
+                                        Classes</button>
+                                   <button id="resetClasses"
+                                        class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 ml-2">Reset</button>
+                              </div>
+                         </div>
+
+                         <!-- Preview and Code -->
+                         <div>
+                              <h2 class="text-xl font-semibold text-gray-700 mb-2">Preview & Code</h2>
+                              <div id="preview" class="border rounded p-4 bg-gray-50">
+                                   <p class="text-gray-500">Your styled element will appear here.</p>
+                              </div>
+                              <h3 class="text-lg font-medium text-gray-600 mt-4">Generated Code </h3>
+                              <pre id="generatedCode" style="background-color: #333;"
+                                   class="text-green-400 p-4 rounded text-sm overflow-x-auto">&lt;div class=""&gt;Your styled element will appear here.&lt;/div&gt;</pre>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+
+
+          <!-- Image Classes -->
+          <!-- Image Classes -->
+          <!-- Image Classes -->
+
+          <div id="image-classes-tab" class="tab-pane hidden">
+               <div class="max-w-6xl mx-auto bg-white rounded-lg shadow p-6 mt-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                         <div>
+                              <h2 class="text-xl font-semibold text-gray-700 mb-2">Configure Styles</h2>
+                              <div id="image-preview-controls"></div>
+                         </div>
+                         <div>
+                              <h2 class="text-xl font-semibold text-gray-700 mb-2">Image Preview & Code</h2>
+                              <div id="imagePreview" class="border rounded p-4 bg-gray-50">
+                                   <img src="./assets/sample.jpg" alt="Random Image" class="block">
+                              </div>
+                              <h3 class="text-lg font-medium text-gray-600 mt-4">Generated Code</h3>
+                              <pre id="generatedImageCode" style="background-color: #333;"
+                                   class="text-green-400 p-4 rounded text-sm overflow-x-auto">&lt;img class="" src="./assets/sample.jpg" alt="Random Image"&gt;</pre>
+                         </div>
+                    </div>
+                    <div class="mt-4">
+                         <button id="applyImageClasses"
+                              class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Apply
+                              Classes</button>
+                         <button id="resetImageClasses"
+                              class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 ml-2">Reset</button>
+                    </div>
+
+                    <script>
+                         const imagePreview = document.getElementById('imagePreview');
+                         const imgElement = imagePreview.querySelector('img');
+                         const generatedImageCode = document.getElementById('generatedImageCode');
+
+                         const imageClasses = [
+                              'rounded', 'rounded-full', 'rounded-lg', 'rounded-md', 'rounded-sm',
+                              'rounded-xl',
+                              'shadow', 'shadow-md', 'shadow-lg', 'shadow-xl',
+                              'border', 'border-2', 'border-4', 'border-8',
+                              'p-2', 'p-4', 'p-6', 'p-8',
+                         ];
+
+                         function applyImageClasses() {
+                              const selectedClasses = [];
+                              imageClasses.forEach((className) => {
+                                   if (document.querySelector(`input[name="image-class-${className}"]`).checked) {
+                                        selectedClasses.push(className);
+                                   }
+                              });
+                              imgElement.className = selectedClasses.join(' ');
+                              generatedImageCode.innerText =
+                                   `<img class="${selectedClasses.join(' ')}" src="./assets/sample.jpg" alt="Random Image">`;
+                         }
+
+                         function resetImageClasses() {
+                              imgElement.className = '';
+                              generatedImageCode.innerText =
+                                   `<img class="" src="./assets/sample.jpg" alt="Random Image">`;
+                              document.querySelectorAll('#image-preview-controls input[type="checkbox"]').forEach((checkbox) => {
+                                   checkbox.checked = false;
+                              });
+                         }
+
+                         imageClasses.forEach((className) => {
+                              const checkbox = document.createElement('input');
+                              checkbox.type = 'checkbox';
+                              checkbox.name = `image-class-${className}`;
+                              checkbox.id = `image-class-${className}`;
+
+                              const label = document.createElement('label');
+                              label.textContent = className;
+                              label.htmlFor = `image-class-${className}`;
+                              label.className = 'block text-sm text-gray-600 ml-2';
+
+                              const control = document.createElement('div');
+                              control.className = 'flex items-center mb-2';
+                              control.appendChild(checkbox);
+                              control.appendChild(label);
+
+                              document.getElementById('image-preview-controls').appendChild(control);
+                         });
+
+                         document.getElementById('applyImageClasses').addEventListener('click', applyImageClasses);
+                         document.getElementById('resetImageClasses').addEventListener('click', resetImageClasses);
+                    </script>
+               </div>
+          </div>
+          <footer class="fixed bottom-0 left-0 right-0 p-4 text-center">
+               <a href="https://github.com/userkace" target="_blank" rel="noopener noreferrer"
+                    class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 mx-2">Github</a>
+               <a href="https://github.com/userkace/tailwind-css" target="_blank" rel="noopener noreferrer"
+                    class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 mx-2">Repository</a>
+          </footer>
+
+     </div>
+
+     <script>
+          // Get the tab buttons
+          const tabButtons = document.querySelectorAll('nav ul li a');
+
+          // Get the tab panes
+          const tabPanes = document.querySelectorAll('.tab-pane');
+
+          // Add an event listener to each tab button
+          tabButtons.forEach((button) => {
+               button.addEventListener('click', (event) => {
+                    // Get the ID of the tab pane to show
+                    const tabId = event.target.getAttribute('href').replace('#', '');
+
+                    // Hide all tab panes
+                    tabPanes.forEach((pane) => {
+                         pane.classList.remove('active');
+                         pane.classList.add('hidden');
+                    });
+
+                    // Show the selected tab pane
+                    const selectedPane = document.getElementById(tabId);
+                    selectedPane.classList.remove('hidden');
+                    selectedPane.classList.add('active');
+               });
+          });
+     </script>
+
+     <script>
+          // Select DOM elements
+          const classForm = document.getElementById('classForm');
+          const applyClasses = document.getElementById('applyClasses');
+          const resetClasses = document.getElementById('resetClasses');
+          const preview = document.getElementById('preview');
+          const generatedCode = document.getElementById('generatedCode');
+          const paddingType = document.getElementById('paddingType');
+
+          const wholePaddingOptions = document.getElementById('wholePaddingOptions');
+          const individualPaddingOptions = document.getElementById('individualPaddingOptions');
+
+          const marginType = document.getElementById('marginType');
+
+          const wholeMarginOptions = document.getElementById('wholeMarginOptions');
+          const individualMarginOptions = document.getElementById('individualMarginOptions');
+
+          // Show/Hide Padding Options based on the selected Padding Type
+          paddingType.addEventListener('change', (event) => {
+               if (event.target.value === 'whole') {
+                    wholePaddingOptions.classList.remove('hidden');
+                    individualPaddingOptions.classList.add('hidden');
+               } else {
+                    wholePaddingOptions.classList.add('hidden');
+                    individualPaddingOptions.classList.remove('hidden');
+               }
+          });
+
+          // Show/Hide Margin Options based on the selected Margin Type
+          marginType.addEventListener('change', (event) => {
+               if (event.target.value === 'whole') {
+                    wholeMarginOptions.classList.remove('hidden');
+                    individualMarginOptions.classList.add('hidden');
+               } else {
+                    wholeMarginOptions.classList.add('hidden');
+                    individualMarginOptions.classList.remove('hidden');
+               }
+          });
+
+          // Apply Classes Button
+          applyClasses.addEventListener('click', () => {
+               const formData = new FormData(classForm);
+               const bgColor = formData.get('bgColor') || '';
+               const textColor = formData.get('textColor') || '';
+               const paddings = formData.getAll('padding').join(' ');
+               const margins = formData.getAll('margin').join(' ');
+
+               const classes = `${bgColor} ${textColor} ${paddings} ${margins}`.trim();
+
+               preview.innerHTML = `<div class="${classes}">Preview of your styled element.</div>`;
+               generatedCode.textContent =
+                    `<div class="${classes}">Preview of your styled element.</div>`;
+          });
+
+          // Reset Button
+          resetClasses.addEventListener('click', () => {
+               classForm.reset();
+               preview.innerHTML =
+                    '<div class="">Preview of your styled element.</div>';
+               generatedCode.textContent = '<div class="">Preview of your styled element.</div>';
+               wholePaddingOptions.classList.remove('hidden');
+               individualPaddingOptions.classList.add('hidden');
+               wholeMarginOptions.classList.remove('hidden');
+               individualMarginOptions.classList.add('hidden');
+          });
+     </script>
+</body>
+
+</html>

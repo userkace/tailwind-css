@@ -379,25 +379,39 @@
                          const imgElement = imagePreview.querySelector('img');
                          const generatedImageCode = document.getElementById('generatedImageCode');
 
-                         const imageClasses = [
-                              'rounded', 'rounded-full', 'rounded-lg', 'rounded-md', 'rounded-sm',
-                              'rounded-xl',
-                              'shadow', 'shadow-md', 'shadow-lg', 'shadow-xl',
-                              'border', 'border-2', 'border-4', 'border-8',
-                              'p-2', 'p-4', 'p-6', 'p-8',
-                         ];
+                         const categories = {
+                              'Rounding': [
+                                   'rounded', 'rounded-full', 'rounded-lg', 'rounded-md', 'rounded-sm',
+                                   'rounded-xl',
+                              ],
+                              'Shadow': [
+                                   'shadow', 'shadow-md', 'shadow-lg', 'shadow-xl',
+                              ],
+                              'Border': [
+                                   'border', 'border-2', 'border-4', 'border-8',
+                              ],
+                              'Padding': [
+                                   'p-2', 'p-4', 'p-6', 'p-8',
+                              ],
+                              'Margin': [
+                                   'm-2', 'm-4', 'm-6', 'm-8',
+                              ],
+                         };
 
                          function applyImageClasses() {
                               const selectedClasses = [];
-                              imageClasses.forEach((className) => {
-                                   if (document.querySelector(`input[name="image-class-${className}"]`).checked) {
-                                        selectedClasses.push(className);
-                                   }
+                              Object.entries(categories).forEach(([category, classes]) => {
+                                   classes.forEach((className) => {
+                                        if (document.querySelector(`input[name="image-class-${className}"]`).checked) {
+                                             selectedClasses.push(className);
+                                        }
+                                   });
                               });
                               imgElement.className = selectedClasses.join(' ');
                               generatedImageCode.innerText =
                                    `<img class="${selectedClasses.join(' ')}" src="./assets/sample.jpg" alt="Random Image">`;
                          }
+
 
                          function resetImageClasses() {
                               imgElement.className = '';
@@ -408,23 +422,36 @@
                               });
                          }
 
-                         imageClasses.forEach((className) => {
-                              const checkbox = document.createElement('input');
-                              checkbox.type = 'checkbox';
-                              checkbox.name = `image-class-${className}`;
-                              checkbox.id = `image-class-${className}`;
+                         Object.entries(categories).forEach(([category, classes]) => {
+                              const categoryElement = document.createElement('div');
+                              categoryElement.className = 'mb-4';
+                              categoryElement.innerHTML = `<h4 class="text-lg font-medium text-gray-600">${category}</h4>`;
 
-                              const label = document.createElement('label');
-                              label.textContent = className;
-                              label.htmlFor = `image-class-${className}`;
-                              label.className = 'block text-sm text-gray-600 ml-2';
+                              const categoryOptions = document.createElement('div');
+                              categoryOptions.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2';
+                              classes.forEach((className) => {
+                                   const option = document.createElement('div');
+                                   option.className = 'flex items-center space-x-2';
 
-                              const control = document.createElement('div');
-                              control.className = 'flex items-center mb-2';
-                              control.appendChild(checkbox);
-                              control.appendChild(label);
+                                   const checkbox = document.createElement('input');
+                                   checkbox.type = 'checkbox';
+                                   checkbox.name = `image-class-${className}`;
+                                   checkbox.id = `image-class-${className}`;
 
-                              document.getElementById('image-preview-controls').appendChild(control);
+                                   const label = document.createElement('label');
+                                   label.textContent = className;
+                                   label.htmlFor = `image-class-${className}`;
+                                   label.className = 'text-sm text-gray-600';
+
+                                   option.appendChild(checkbox);
+                                   option.appendChild(label);
+
+                                   categoryOptions.appendChild(option);
+                              });
+
+                              categoryElement.appendChild(categoryOptions);
+
+                              document.getElementById('image-preview-controls').appendChild(categoryElement);
                          });
 
                          document.getElementById('applyImageClasses').addEventListener('click', applyImageClasses);
